@@ -81,21 +81,6 @@ public class EmployeeController {
 		}
 	}
 
-	// api to delete user
-	@DeleteMapping("/users/{id}")
-	public ResponseEntity<ResponseMessage> deleteUser(@PathVariable("id") String id) {
-		try {
-			service.deleteById(id);
-			List<Employee> users = service.getAllEmployees();
-			if (users.isEmpty()) {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			}
-			return new ResponseEntity<>(new ResponseMessage("Successfully Deleted"), HttpStatus.OK);
-
-		} catch (Exception e) {
-			return new ResponseEntity<>(new ResponseMessage("No such employee"), HttpStatus.BAD_REQUEST);
-		}
-	}
 
 	// User Story 3: Edit user information
 	@PatchMapping("/users/{id}")
@@ -130,6 +115,22 @@ public class EmployeeController {
 
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	// api to delete user
+	@DeleteMapping("/users/{id}")
+	public ResponseEntity<ResponseMessage> deleteUser(@PathVariable("id") String id) {
+		try {
+			service.deleteById(id);
+			List<Employee> users = service.getAllEmployees();
+			if (users.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(new ResponseMessage("Successfully Deleted"), HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(new ResponseMessage("No such employee"), HttpStatus.BAD_REQUEST);
 		}
 	}
 }

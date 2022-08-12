@@ -1,10 +1,21 @@
-# SalaryManagementWebapp
+# Salary Management WebApp (Front-End)
 
+
+# Description
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
+#
+Home Page
+- To upload csv file to database by choosing the file and clicking the upload button to 
+![upload](../pics/uploadfile.PNG)
 
-## Development server
+Employee 
+- To view list of Employees with the options to edit or delete
+- Employees can be filtered by the input for the minimum and maximum salary
+![emptable](../pics/emptable.PNG)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to run
+
+Run `ng serve` using the command prompt on the ```SalaryManagementWebApp``` folder. Navigate to `http://localhost:4200/`. 
 
 ## Code scaffolding
 

@@ -18,6 +18,7 @@ import com.cts.SalaryManagement.Exception.IncorrectNumberOfColumnsException;
 import com.cts.SalaryManagement.Exception.SalaryLessThanZeroException;
 import com.cts.SalaryManagement.Model.Employee;
 
+// CSV helper to check for csv file type and data validation 
 public class CSVHelper {
 
 	private static String TYPE = "text/csv";

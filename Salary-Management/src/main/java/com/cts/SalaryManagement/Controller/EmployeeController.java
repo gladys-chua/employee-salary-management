@@ -29,7 +29,8 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
 
-	// User Story 1: Upload CSV file to Database
+	// User Story 1: Upload users
+	// upload CSV file to Database
 	@PostMapping("/users/upload")
 	public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
 		String msg;
@@ -50,7 +51,8 @@ public class EmployeeController {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(msg));
 	}
 
-	// User Story 2: To retrieve all users for display
+	// User Story 2: fetch list of employees
+	// api to retrieve all users for display
 	@GetMapping("/all")
 	public ResponseEntity<List<Employee>> getAllEmployees() {
 		try {
@@ -82,7 +84,8 @@ public class EmployeeController {
 	}
 
 
-	// User Story 3: Edit user information
+	// User Story 3: CRUD  
+	// api to update/edit user information 
 	@PatchMapping("/users/{id}")
 	public ResponseEntity<ResponseMessage> UpdateUser(@PathVariable("id") String id, @RequestBody Employee employee) {
 		try {
@@ -95,6 +98,7 @@ public class EmployeeController {
 		}
 	}
 	
+	// api to create new employee
 	@PostMapping("/users")
 	public ResponseEntity<ResponseMessage> createNewEmployee(@RequestBody Employee employee) {
 		try {
@@ -106,6 +110,7 @@ public class EmployeeController {
 		}
 	}
 	
+	// api to get employee info given id
 	@GetMapping("/users/{id}")
 	public ResponseEntity<Employee> getUser(@PathVariable("id") String id) {
 		try {
@@ -118,7 +123,7 @@ public class EmployeeController {
 		}
 	}
 	
-	// api to delete user
+	// api to delete employee
 	@DeleteMapping("/users/{id}")
 	public ResponseEntity<ResponseMessage> deleteUser(@PathVariable("id") String id) {
 		try {

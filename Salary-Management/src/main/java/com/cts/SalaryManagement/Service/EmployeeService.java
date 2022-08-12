@@ -25,6 +25,7 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	// service to save the data from csv to database
 	public void save(MultipartFile file) {
 		try {
 			List<Employee> empList = CSVHelper.csvToUsers(file.getInputStream());
@@ -38,22 +39,25 @@ public class EmployeeService {
 		}
 	}
 	
+	// to retrieve all employees sorted by ID
 	@Transactional
 	public List<Employee> getAllEmployees(){
-//		return employeeRepository.findAll();
 		return employeeRepository.findAllEmployeesByOrderById();
 	}
 	
+	// to retreive employees with salary between minimum and maximum value given
 	@Transactional
 	public List<Employee> getFilteredUsers(double minSalary, double maxSalary){
 		return employeeRepository.getFilteredEmployees(minSalary, maxSalary);
 	}
 	
+	// to delete employee given ID
 	@Transactional
 	public void deleteById(String id) {
 		employeeRepository.deleteById(id);		
 	}
 	
+	// to update employee and validate the inputs given
 	@Transactional
 	public ResponseEntity<ResponseMessage> updateEmployee(String id, String login, String name, Double salary, LocalDate startDate) {
 		
@@ -81,6 +85,7 @@ public class EmployeeService {
 		return  new ResponseEntity<>(new ResponseMessage("No Such Employee"), HttpStatus.BAD_REQUEST);
 	}
 
+	// to create a new employee with validations
 	@Transactional
 	public ResponseEntity<ResponseMessage> createEmployee(Employee employee) {
 		if (employeeRepository.findById(employee.getId()).isPresent()) {
@@ -96,6 +101,7 @@ public class EmployeeService {
 		return  new ResponseEntity<>(new ResponseMessage("Successfully created"), HttpStatus.OK);
 	}
 	
+	// to retrieve employee given ID
 	@Transactional
 	public Employee findById(String id) {
 		Optional<Employee> result = employeeRepository.findById(id);

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Salary-Management-Webapp'`, () => {
+  it(`should have as title 'Salary-Management-Frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Salary-Management-Webapp');
+    expect(app.title).toEqual('Salary-Management-Frontend');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Salary-Management-Webapp app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Salary-Management-Frontend app is running!');
   });
 });

@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Add new Employee</h2>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Employee</mat-label>
+    <input matInput [(ngModel)]="emp.id">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Login</mat-label>
+    <input matInput [(ngModel)]="emp.login">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="emp.name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Salary</mat-label>
+    <input type="number" min="0" matInput [(ngModel)]="emp.salary" >
+</mat-form-field>
+<mat-dialog-content appearance="fill">
+    <mat-label>Start Date</mat-label>
+    <input type="date" matInput [(ngModel)]="emp.startDate" >
+  </mat-dialog-content>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button (click)="save()">Save</button>
+</div>

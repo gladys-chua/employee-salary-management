@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Salary-Management-Webapp": {
+    "Salary-Management-Frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/salary-management-webapp",
+            "outputPath": "dist/salary-management-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,7 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -68,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Salary-Management-Webapp:build:production"
+              "browserTarget": "Salary-Management-Frontend:build:production"
             },
             "development": {
-              "browserTarget": "Salary-Management-Webapp:build:development"
+              "browserTarget": "Salary-Management-Frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Salary-Management-Webapp:build"
+            "browserTarget": "Salary-Management-Frontend:build"
           }
         },
         "test": {
@@ -94,6 +99,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -102,5 +108,5 @@
       }
     }
   },
-  "defaultProject": "Salary-Management-Webapp"
+  "defaultProject": "Salary-Management-Frontend"
 }

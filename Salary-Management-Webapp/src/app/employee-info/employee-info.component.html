@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="">Employees</h2>
+        </div>
+        <div class="col">
+            <button class="btn btn-warning float-end" (click)="addEmp()">Add Employee</button>
+        </div>
+    </div>
+</div>
+<div class="container md-4">
+    <div class="row">
+        <div class="input-group col-sm">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Minimum Salary: $</span>
+            </div>
+            <input name="minSalary" id="minSalary" class="form-control" type="number" [(ngModel)]="minS" #minSal="ngModel" (change)="valChange()">   
+        </div>
+
+        <div class="input-group col-sm">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Maximum Salary: $</span>
+            </div>
+            <input name="maxSalary" id="maxSalary" class="form-control" type="number" [(ngModel)]="maxS" #maxSal="ngModel" (change)="valChange()">  
+        </div>      
+    </div>
+</div>
+
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td scope="col">ID</td>
+                <td scope="col">Name</td>
+                <td scope="col">Login</td>
+                <td scope="col">Salary</td>
+                <td scope="col">Start Date</td>
+                <td scope="col">Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr 
+            [routerLink]="['/employees']"
+            [queryParams]="{minSalary:minSal, maxSalary:maxSal, offset:0, limit:30}"
+            *ngFor="let u of employees;">
+                <td>{{u.id}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.login}}</td>
+                <td>{{u.salary}}</td>
+                <td>{{u.startDate}}</td>
+                <td>
+                    <input class="form-control btn-warning" type="button" value="Edit" (click)="openDialog(u)"/>
+                    <input class="form-control btn-dark" type="button" value="Delete" (click)="onEmpDelete(u)"/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

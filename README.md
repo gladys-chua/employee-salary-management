@@ -4,6 +4,19 @@
 This is a employee salary management web application to help the HR department manage employees' salaries.
 
 #
+## How to use
+1. SalaryManagement 
+    - Rest API developed using Spring Boot
+    - How to run
+        - Run `ng serve` using the command prompt on the ```SalaryManagementWebApp``` folder. Navigate to `http://localhost:4200/`.
+2. SalaryManagementWebApp
+    - Front end developed using Angular web framework
+    - How to run
+        - Navigate to `http://localhost:8080/h2` to access the database of the web application. Credentials can be found in the ```src/main/resources``` folder.
+        - From the ```src/main/java/``` folder, ```com.cts.SalaryManagement``` package, from the ```SalaryManagementApplication.java``` file, click run as Java Application.
+
+
+#
 
 ## User Story 1: Upload Users
 - The csv file that contains the employees' data can be upload through the home page (upload CSV here) of the web app.
@@ -33,15 +46,4 @@ This is a employee salary management web application to help the HR department m
 - Delete
     - Deletes the chosen employee data from the database
 #
-
-## How to use
-1. SalaryManagement 
-    - Rest API developed using Spring Boot
-    - How to run
-        - Run `ng serve` using the command prompt on the ```SalaryManagementWebApp``` folder. Navigate to `http://localhost:4200/`.
-2. SalaryManagementWebApp
-    - Front end developed using Angular web framework
-    - How to run
-        - Navigate to `http://localhost:8080/h2` to access the database of the web application. Credentials can be found in the ```src/main/resources``` folder.
-        - From the ```src/main/java/``` folder, ```com.cts.SalaryManagement``` package, from the ```SalaryManagementApplication.java``` file, click run as Java Application.
 
